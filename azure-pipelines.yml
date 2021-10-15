@@ -7,13 +7,23 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
+
+
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+
+- task: UsePythonVersion@0
+  displayName: 'Use Python 3.8'
+  inputs:
+    versionSpec: 3.8
+
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    python -m pip install --upgrade pip
+    pip install selenium
+    pip install behave
+    pip install chromedriver-py==88.0.4324.96
+    behave -i StudentWebsite.feature
+
+

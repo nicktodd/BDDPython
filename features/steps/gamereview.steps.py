@@ -67,7 +67,7 @@ class WebPage:
         chrome_options.add_argument("--use-fake-ui-for-media-stream") # options turn off the prompt for the microphone
         #chrome_options.add_argument("--headless")
         self.driver = webdriver.Chrome(chrome_options=chrome_options)
-        self.website = self.driver.get('https://gamereviewstack-codebuilddeploy-xmvz-webappbucket-71jwxn1oy8i0.s3.amazonaws.com/index.html')
+        self.website = self.driver.get('http://lex-web-ui-codebuilddeploy-111ur27va-webappbucket-1jao1kwr08r2e.s3.us-east-1.amazonaws.com/index.html')
         self.number_of_messages = 1
         self.wait_for_next_message()
         self.text_input_box = self.driver.find_element_by_id('text-input')
@@ -106,7 +106,7 @@ class WebPage:
         return latest_message_from_bot
 
 
-'''webpage = WebPage.get_instance()'''
+webpage = WebPage.get_instance()
 
 
 

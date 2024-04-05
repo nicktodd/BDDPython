@@ -24,6 +24,9 @@ To run the tests, type behave at the command line
 This feature does not go near the internet so can be executed without the chrome driver
 behave -i SpeakingClock.feature
 
+This feature uses the metacritic test Lambda (which now fakes the result at 89%)
+behave -i gamereview.feature
+
 
 This feature tests the student find my machine web site
 behave -i StudentWebsite.feature

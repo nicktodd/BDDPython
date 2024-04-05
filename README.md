@@ -25,6 +25,7 @@ This feature does not go near the internet so can be executed without the chrome
 behave -i SpeakingClock.feature
 
 This feature uses the metacritic test Lambda (which now fakes the result at 89%)
+If logged into AWS, the deployed lambda can be reviewed here: https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions/MetacriticLambda?tab=code
 behave -i gamereview.feature
 
 

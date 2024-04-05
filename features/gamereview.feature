@@ -18,4 +18,4 @@ Feature: Requesting a game review from a chat bot
     When asked for the game title the user enters 'fortnite'
     And when asked for the game platform the user enters 'pc'
     And when prompted to confirm the user enters 'yes'
-    Then the chatbot should respond with 'According to metacritic, fortnite is rated: 79%'
+    Then the chatbot should respond with 'According to metacritic, fortnite is rated: 81%'

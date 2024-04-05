@@ -6,20 +6,29 @@ pip install selenium
 pip install pyhamcrest
 
 ## Chromedriver
-download latest chromedriver from https://chromedriver.storage.googleapis.com/index.html?path=2.40/
-v94 as of Oct 2021  https://chromedriver.storage.googleapis.com/index.html?path=94.0.4606.61/
+
+The URL for chrome drivers is now. You can identify the current driver on this page.
+https://googlechromelabs.github.io/chrome-for-testing/#stable
 
 Extract chromedriver and place file in the PATH. On windows, you can run the following command from a terminal at the root of the project
 
 ```
 PATH=%PATH%;.\
+export PATH=$PATH:.
 ```
 
 ## Running a Test
 To run the tests, type behave at the command line
 
 ```
+This feature does not go near the internet so can be executed without the chrome driver
+behave -i SpeakingClock.feature
+
+
+This feature tests the student find my machine web site
+behave -i StudentWebsite.feature
+
+The insurance feature is no longer live.
 behave -i insurance.feature
 
-behave -i StudentWebsite.feature
 ```

@@ -8,5 +8,7 @@ class TimeToText:
             return "midnight"
         elif time_to_convert.hour == 12 and time_to_convert.minute == 0 :
             return "midday"
+        elif time_to_convert.hour == 1 and time_to_convert.minute == 0:
+            return "one am"
         else:
             return None

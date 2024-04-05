@@ -46,16 +46,16 @@ class WebPage:
 
     def load_webpage(self):
         chrome_options = Options()
-        chrome_options.add_argument("--use-fake-ui-for-media-stream") # options turn off the prompt for the microphone
-        chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        #chrome_options.add_argument("--use-fake-ui-for-media-stream") # options turn off the prompt for the microphone
+        #chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
         #chrome_options.add_argument("--headless")
-        self.driver = webdriver.Chrome(chrome_options=chrome_options)
+        self.driver = webdriver.Chrome(options=chrome_options)
         self.website = self.driver.get('https://student.conygre.com')
         delay = 3 # seconds
         WebDriverWait(self.driver, delay).until(EC.presence_of_element_located((By.CSS_SELECTOR, '#machineName')))
     
-        self.region_selector = self.driver.find_element_by_class_name('custom-select')
-        self.machine_name_text_field = self.driver.find_element_by_id('machineName')
+        self.region_selector = self.driver.find_element(By.CLASS_NAME, 'custom-select')
+        self.machine_name_text_field = self.driver.find_element(By.ID, 'machineName')
 
     @classmethod
     def get_instance(cls):

@@ -66,11 +66,11 @@ class WebPage:
         chrome_options = Options()
         chrome_options.add_argument("--use-fake-ui-for-media-stream") # options turn off the prompt for the microphone
         #chrome_options.add_argument("--headless")
-        self.driver = webdriver.Chrome(chrome_options=chrome_options)
+        self.driver = webdriver.Chrome(options=chrome_options)
         self.website = self.driver.get('http://lex-web-ui-codebuilddeploy-111ur27va-webappbucket-1jao1kwr08r2e.s3.us-east-1.amazonaws.com/index.html')
         self.number_of_messages = 1
         self.wait_for_next_message()
-        self.text_input_box = self.driver.find_element_by_id('text-input')
+        self.text_input_box = self.driver.find_element(By.ID, 'text-input')
 
     @classmethod
     def get_instance(cls):
@@ -88,7 +88,7 @@ class WebPage:
             print('waiting for ' + css_selector)
             WebDriverWait(self.driver, delay).until(EC.presence_of_element_located((By.CSS_SELECTOR, css_selector)))
             time.sleep(2) # needs a brief pause to allow the chatbot time to put some content in the field
-            latest_message_element = self.driver.find_element_by_css_selector(css_selector=css_selector)
+            latest_message_element = self.driver.find_element(By.CSS_SELECTOR, css_selector)
             latest_message_from_bot = latest_message_element.text
             print('message received: ' + latest_message_from_bot)
             self.number_of_messages=self.number_of_messages+2 # it is two because every other one is from the human
@@ -100,7 +100,7 @@ class WebPage:
     def get_current_message_again(self):
         css_selector = '.message-bot:nth-child(' + str(self.number_of_messages-2) + ')'
         print('trying again for ' + css_selector)
-        latest_message_element = self.driver.find_element_by_css_selector(css_selector=css_selector)
+        latest_message_element = self.driver.find_element(By.CSS_SELECTOR, css_selector)
         latest_message_from_bot = latest_message_element.text
         print('message received: ' + latest_message_from_bot)
         return latest_message_from_bot
